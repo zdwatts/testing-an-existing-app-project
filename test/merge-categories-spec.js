@@ -67,15 +67,48 @@ describe("mergeCategories()", () => {
     `;
 
     it("should return no <option>s for no categories", () => {
-      expect.fail('please write this test');
+      //Arrange
+      const categories = [];
+      //Act
+      const mergeCategories = merge(template, categories, "option");
+      //Assert
+      expect(mergeCategories).to.contain("<div>");
+      expect(mergeCategories).to.contain("</div>");
+      expect(mergeCategories).to.contain("<select>");
+      expect(mergeCategories).to.contain("</select>");
+      expect(mergeCategories).to.not.contain("<option>");
+      expect(mergeCategories).to.not.contain("</option>");
+      expect(mergeCategories).to.not.contain('<!-- Content here -->');
     });
 
     it("should return a single <option> for one category", () => {
-      expect.fail('please write this test');
+      //Arrange
+      const categories = ["dog"];
+      //Act
+      const mergeCategories = merge(template, categories, "option");
+      //Assert
+      expect(mergeCategories).to.contain("<div>");
+      expect(mergeCategories).to.contain("</div>");
+      expect(mergeCategories).to.contain("<select>");
+      expect(mergeCategories).to.contain("</select>");
+      expect(mergeCategories).to.contain("<option>");
+      expect(mergeCategories).to.contain("</option>");
+      expect(mergeCategories).to.not.contain('<!-- Content here -->');
     });
 
     it("should return an <option> for each category", () => {
-      expect.fail('please write this test');
+      //Arrange
+      const categories = ["dog", "cat"];
+      //Act
+      const mergeCategories = merge(template, categories, "option");
+      //Assert
+      expect(mergeCategories).to.contain("<div>");
+      expect(mergeCategories).to.contain("</div>");
+      expect(mergeCategories).to.contain("<select>");
+      expect(mergeCategories).to.contain("</select>");
+      expect(mergeCategories).to.contain("<option>dog</option>");
+      expect(mergeCategories).to.contain("<option>cat</option>");
+      expect(mergeCategories).to.not.contain('<!-- Content here -->');
     });
   });
 });
