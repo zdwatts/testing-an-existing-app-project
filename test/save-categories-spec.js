@@ -16,7 +16,7 @@ describe("saveCategories()", () => {
   it('sorts the list', () => {
     // Arrange
     const categories = ['Cat 3', 'Cat1'];
-    const newCategory = 'Cat 2';
+    const newCategory = 'Cat 2'; 
 
     // Act
     const result = saveCategories(categories, newCategory);

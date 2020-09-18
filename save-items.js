@@ -1,6 +1,6 @@
 function saveItems(items, newItem) {
   items.push(newItem);
-  return [...items];
+  return [...items]; 
 }
 
 exports.saveItems = saveItems;
