@@ -7,9 +7,7 @@ describe("saveCategories()", () => {
     const newCategory = 'New Category';
 
     // Act
-    // Call the saveCategories function with the categories
-    // and newCategory values and store the result in a
-    // variable named "result"
+    let result = saveCategories(categories, newCategory);
 
     // Assert
     expect(result).to.include(newCategory);

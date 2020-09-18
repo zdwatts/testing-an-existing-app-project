@@ -30,7 +30,17 @@ describe("The getBodyFromRequest function", () => {
     const data1 = "this is some";
     const data2 = " data from the browser";
     //Act
-
+    fakeReq.emit("data", data1);
+    fakeReq.emit("data", data2);
+    fakeReq.emit('end'); 
     //Assert
+    bodyPromise
+      .then(body => {
+        if (body === data1 + data2) {
+          done(); 
+        } else {
+          done(`Failed. Got "${body}"`);
+        }
+      })
   });
 });
